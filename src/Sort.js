@@ -4,21 +4,20 @@ class QuickSort {
     this.sorted;
   }
 
-  sort(array) {
-    array = this.array;
-    if (array.length < 2) {
-      return array;
+  sort(inputArray = this.array) {
+    if (inputArray.length <= 1) {
+      return inputArray;
     } else {
-      let tempArray,
-        leftSide,
-        rightSide = [];
-      let pivot = array.pop();
+      let tempArray = [];
+      let leftSide = [];
+      let rightSide = [];
+      let pivot = inputArray.pop();
 
-      for (let i = 0; i < array.length; i++) {
-        if (array[i] <= pivot) {
-          leftSide.push(array[i]);
+      for (let i = 0; i < inputArray.length; i++) {
+        if (inputArray[i] <= pivot) {
+          leftSide.push(inputArray[i]);
         } else {
-          rightSide.push[array[i]];
+          rightSide.push[inputArray[i]];
         }
       }
       return tempArray.concat(this.sort(leftSide), pivot, this.sort(rightSide));
