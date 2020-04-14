@@ -11,20 +11,43 @@ describe("Sort", () => {
   });
 
   it("should sort [1]", () => {
-    let newQuickSort0 = new Sort([1]);
-    console.log(newQuickSort0, "------------1----------------");
-    expect(newQuickSort0.sort()).to.deep.equal([1]);
+    let newQuickSort = new Sort([1]);
+    expect(newQuickSort.sort()).to.deep.equal([1]);
   });
 
   it("should sort [2, 1]", () => {
-    let newQuickSort1 = new Sort([2, 1]);
-    console.log(newQuickSort1, "------------2------------");
-    expect(newQuickSort1.sort()).to.deep.equal([1, 2]);
+    let newQuickSort = new Sort([2, 1]);
+    expect(newQuickSort.sort()).to.deep.equal([1, 2]);
   });
 
-  it("should sort [2, 2, 1]", () => {
-    let newQuickSort2 = new Sort([2, 2, 1]);
-    console.log(newQuickSort2, "------------2------------");
-    expect(newQuickSort2.sort()).to.deep.equal([1, 2, 2]);
+  it("should sort [2, 2, 1, 3, 1, 3]", () => {
+    let newQuickSort = new Sort([2, 2, 1, 3, 1, 3]);
+    expect(newQuickSort.sort()).to.deep.equal([1, 1, 2, 2, 3, 3]);
+  });
+
+  it("should sort any size array of random numbers", () => {
+    let newQuickSort = new Sort([2, 2, 1, 3, 1, 3]);
+    expect(newQuickSort.sort()).to.deep.equal([1, 1, 2, 2, 3, 3]);
+  });
+
+  describe("generateRandomArray()", () => {
+    it("should be a function", () => {
+      expect(Sort.generateRandomArray).to.be.a("function");
+    });
+    it("should return various size arrays, depending on input", () => {
+      let oneSizeArray = Sort.generateRandomArray(1);
+      let tenSizeArray = Sort.generateRandomArray(10);
+      let aHundredSizeArray = Sort.generateRandomArray(100);
+      expect(oneSizeArray.length).to.equal(1);
+      expect(tenSizeArray.length).to.equal(10);
+      expect(aHundredSizeArray.length).to.equal(100);
+    });
+    it("should return arrays containing random numbers (1-100)", () => {
+      let firstArray = Sort.generateRandomArray(10);
+      let secondArray = Sort.generateRandomArray(10);
+      let newQuickSort1 = new Sort(firstArray);
+      let newQuickSort2 = new Sort(secondArray);
+      expect(newQuickSort1.array).to.not.equal(newQuickSort2.array);
+    });
   });
 });
