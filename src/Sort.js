@@ -17,7 +17,7 @@ class QuickSort {
         if (inputArray[i] <= pivot) {
           leftSide.push(inputArray[i]);
         } else {
-          rightSide.push[inputArray[i]];
+          rightSide.push(inputArray[i]);
         }
       }
       return tempArray.concat(this.sort(leftSide), pivot, this.sort(rightSide));
