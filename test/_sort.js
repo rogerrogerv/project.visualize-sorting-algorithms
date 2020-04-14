@@ -28,9 +28,9 @@ describe("Sort", () => {
   it("should sort any size array of random numbers", () => {
     let smallArray = Sort.generateRandomArray(10);
     let largeArray = Sort.generateRandomArray(1000);
-    let smallCopy = JSON.parse(JSON.stringify(smallArray));
+    let smallCopy = smallArray.slice(0);
     let smallQuickSort = new Sort(smallArray);
-    let largeCopy = JSON.parse(JSON.stringify(largeArray));
+    let largeCopy = largeArray.slice(0);
     let largeQuickSort = new Sort(largeArray);
     expect(smallQuickSort.sort()).to.deep.equal(
       smallCopy.sort((a, b) => a - b)
